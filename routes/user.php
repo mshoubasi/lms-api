@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\User\ApplyCouponsController;
 use App\Http\Controllers\User\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,5 +11,6 @@ Route::post('user/logout', [AuthController::class, 'logout'])->middleware(['auth
 
 
 Route::middleware(['auth:sanctum', 'user'])->group(function () {
-    Route::apiResource('orders', OrderController::class)->except('update', 'destroy');
+    Route::apiResource('orders', OrderController::class)->only('index', 'show');
+    Route::post('courses/{course}/order', [OrderController::class, 'store']);
 });
