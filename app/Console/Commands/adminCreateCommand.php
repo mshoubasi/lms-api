@@ -37,13 +37,14 @@ class adminCreateCommand extends Command
         $validator = Validator::make($admin, [
             'name' => ['required', 'string'],
             'email' => ['required', 'email'],
-            'password' => ['required', Password::default()]
+            'password' => ['required', Password::default()],
         ]);
 
         if ($validator->fails()) {
             foreach ($validator->errors()->all() as $error) {
                 $this->error($error);
             }
+
             return -1;
         }
 
@@ -52,7 +53,7 @@ class adminCreateCommand extends Command
             Admin::create($admin);
         });
 
-        $this->info($admin['email'] . '' . 'created successfully');
+        $this->info($admin['email'].''.'created successfully');
 
         return 0;
     }

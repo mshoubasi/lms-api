@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class CourseUpdateRequest extends FormRequest
 {
@@ -24,7 +23,7 @@ class CourseUpdateRequest extends FormRequest
     {
         return [
             'image' => ['required', 'image'],
-            'title' => ['required', ],
+            'title' => ['required'],
             'description' => ['required'],
             'video' => ['required', 'file', 'mimetypes:video/mp4'],
             'duration' => ['required'],

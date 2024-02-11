@@ -24,7 +24,7 @@ class CouponRequest extends FormRequest
         return [
             'code' => ['required', 'string'],
             'amount' => ['required', 'integer'],
-            'expires_at' => ['required', 'date']
+            'expires_at' => ['required', 'date'],
         ];
     }
 }

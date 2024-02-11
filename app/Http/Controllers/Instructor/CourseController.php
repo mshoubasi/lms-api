@@ -14,6 +14,7 @@ class CourseController extends Controller
     public function index()
     {
         $course = Course::with(['instructor', 'category', 'subcategory'])->latest()->get();
+
         return CourseResoruce::collection($course);
     }
 

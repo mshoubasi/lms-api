@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Admin;
-use Illuminate\Http\Request;
-use App\Services\AuthService;
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
+use App\Services\AuthService;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -13,10 +13,10 @@ class AuthController extends Controller
     {
         $data = $request->validate([
             'email' => ['required', 'email'],
-            'password' => ['required']
+            'password' => ['required'],
         ]);
 
-        return  $authService->login($admin, $data, 'admin', 'admin', 'role:admin');
+        return $authService->login($admin, $data, 'admin', 'admin', 'role:admin');
     }
 
     public function logout(Request $request)

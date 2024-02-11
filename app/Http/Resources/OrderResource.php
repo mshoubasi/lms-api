@@ -29,8 +29,7 @@ class OrderResource extends JsonResource
             'user' => [
                 'name' => $user->name,
                 'email' => $user->email,
-            ]
+            ],
         ];
     }
 }
-

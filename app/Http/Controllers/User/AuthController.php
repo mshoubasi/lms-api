@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Models\User;
-use Illuminate\Http\Request;
-use App\Services\AuthService;
-use App\Http\Requests\AuthRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AuthRequest;
+use App\Models\User;
+use App\Services\AuthService;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -14,10 +14,10 @@ class AuthController extends Controller
     {
         $data = $request->validate([
             'email' => ['required', 'email'],
-            'password' => ['required']
+            'password' => ['required'],
         ]);
 
-        return  $authService->login($user, $data, 'user', 'user', 'role:user');
+        return $authService->login($user, $data, 'user', 'user', 'role:user');
     }
 
     public function register(AuthRequest $request, AuthService $authService, User $user)

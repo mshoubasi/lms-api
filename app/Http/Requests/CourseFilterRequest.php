@@ -25,7 +25,7 @@ class CourseFilterRequest extends FormRequest
             'category' => ['numeric', 'exists:courses,category_id'],
             'subcategory' => ['numeric', 'exists:courses,subcategory_id'],
             'title' => ['string', 'nullable'],
-            'description' => ['string', 'nullable']
+            'description' => ['string', 'nullable'],
         ];
     }
 }

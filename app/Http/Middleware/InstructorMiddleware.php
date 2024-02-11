@@ -18,6 +18,7 @@ class InstructorMiddleware
         if (auth()->user()->tokenCan('role:instructor')) {
             return $next($request);
         }
+
         return response()->json('Not Authorized', 401);
     }
 }

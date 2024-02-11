@@ -35,9 +35,9 @@ class OrderNotification extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->line($this->data['message'])
-                    ->line($this->data['order'])
-                    ->line('Thank you for using our application!');
+            ->line($this->data['message'])
+            ->line($this->data['order'])
+            ->line('Thank you for using our application!');
     }
 
     /**

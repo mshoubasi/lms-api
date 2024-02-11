@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers\Instructor;
 
-use App\Models\Instructor;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AuthRequest;
+use App\Models\Instructor;
 use App\Services\AuthService;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
     public function login(Request $request, AuthService $authService, Instructor $instructor)
     {
-       $data = $request->validate([
+        $data = $request->validate([
             'email' => ['required', 'email'],
-            'password' => ['required']
+            'password' => ['required'],
         ]);
 
-       return  $authService->login($instructor, $data, 'instructor', 'instructor', 'role:instructor');
+        return $authService->login($instructor, $data, 'instructor', 'instructor', 'role:instructor');
 
     }
 

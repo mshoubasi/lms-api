@@ -16,9 +16,9 @@ class CourseService
         try {
             if (isset($data['image'])) {
                 $image = $data['image'];
-                $filename = time() . '.' . $image->getClientOriginalExtension();
+                $filename = time().'.'.$image->getClientOriginalExtension();
                 $subdirectoryPath = public_path("images/courses/{$data['slug']}");
-                if (!file_exists($subdirectoryPath)) {
+                if (! file_exists($subdirectoryPath)) {
                     mkdir($subdirectoryPath, 0755, true);
                 }
                 $image->move($subdirectoryPath, $filename);
@@ -27,9 +27,9 @@ class CourseService
 
             if (isset($data['video'])) {
                 $video = $data['video'];
-                $filename = time() . '.' . $video->getClientOriginalExtension();
+                $filename = time().'.'.$video->getClientOriginalExtension();
                 $subdirectoryPath = public_path("videos/courses/{$data['slug']}");
-                if (!file_exists($subdirectoryPath)) {
+                if (! file_exists($subdirectoryPath)) {
                     mkdir($subdirectoryPath, 0755, true);
                 }
                 $video->move($subdirectoryPath, $filename);
@@ -38,7 +38,7 @@ class CourseService
             $data['instructor_id'] = request()->user()->id;
             $course = Course::create($data);
         } catch (Exception $e) {
-            Log::error('Error uploading course image or video: ' . $e->getMessage());
+            Log::error('Error uploading course image or video: '.$e->getMessage());
             throw $e;
         }
 
@@ -54,9 +54,9 @@ class CourseService
             if ($course->image) {
                 unlink(public_path("images/courses/{$course->slug}/{$course->image}"));
             }
-            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $filename = time().'.'.$image->getClientOriginalExtension();
             $subdirectoryPath = public_path("images/courses/{$data['slug']}");
-            if (!file_exists($subdirectoryPath)) {
+            if (! file_exists($subdirectoryPath)) {
                 mkdir($subdirectoryPath, 0755, true);
             }
             $image->move($subdirectoryPath, $filename);
@@ -68,9 +68,9 @@ class CourseService
             if ($course->video) {
                 unlink(public_path("videos/courses/{$course->slug}/{$course->video}"));
             }
-            $filename = time() . '.' . $video->getClientOriginalExtension();
+            $filename = time().'.'.$video->getClientOriginalExtension();
             $subdirectoryPath = public_path("videos/courses/{$data['slug']}");
-            if (!file_exists($subdirectoryPath)) {
+            if (! file_exists($subdirectoryPath)) {
                 mkdir($subdirectoryPath, 0755, true);
             }
             $video->move($subdirectoryPath, $filename);

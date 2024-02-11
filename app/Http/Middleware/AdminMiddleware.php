@@ -18,6 +18,7 @@ class AdminMiddleware
         if (auth()->user()->tokenCan('role:admin')) {
             return $next($request);
         }
+
         return response()->json('Not Authorized', 401);
     }
 }

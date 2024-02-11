@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CategoryRequest;
 use App\Http\Requests\SubcategoryRequest;
 use App\Http\Resources\SubcategoryResoruce;
 use App\Models\Category;
@@ -35,5 +34,4 @@ class SubcategoryController extends Controller
 
         return response()->json('Deleted');
     }
-
 }

@@ -25,7 +25,6 @@ Route::get('categories', CategoriesController::class);
 Route::get('/categories/{category:slug}/subcategories', SubcategoriesController::class);
 Route::get('courses', CoursesController::class);
 
-require __DIR__ . '/admin.php';
-require __DIR__ . '/user.php';
-require __DIR__ . '/instructor.php';
-
+require __DIR__.'/admin.php';
+require __DIR__.'/user.php';
+require __DIR__.'/instructor.php';

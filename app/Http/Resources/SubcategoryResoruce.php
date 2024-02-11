@@ -18,7 +18,7 @@ class SubcategoryResoruce extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'slug' => $this->slug,
-            'category' => new CategoryResoruce($this->category)
+            'category' => new CategoryResoruce($this->category),
         ];
     }
 }

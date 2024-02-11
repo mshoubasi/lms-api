@@ -21,10 +21,10 @@ class CoursesController extends Controller
                 $query->where('subcategory_id', $request->subcategory);
             })
             ->when($request->title, function ($query) use ($request) {
-                $query->where('title', 'like', '%' . $request->title . '%');
+                $query->where('title', 'like', '%'.$request->title.'%');
             })
             ->when($request->description, function ($query) use ($request) {
-                $query->where('description', 'like', '%' . $request->description . '%');
+                $query->where('description', 'like', '%'.$request->description.'%');
             })
             ->latest()->paginate();
 

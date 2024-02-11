@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Http\Resources\CategoryResoruce;
+use App\Models\Category;
 use App\Services\CategoryService;
 
 class CategoryController extends Controller
@@ -14,7 +14,7 @@ class CategoryController extends Controller
     {
         $category = Category::with('subcategories')->latest()->get();
 
-        return  CategoryResoruce::collection($category);
+        return CategoryResoruce::collection($category);
     }
 
     public function store(CategoryRequest $request, CategoryService $categoryService)
