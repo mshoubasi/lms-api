@@ -20,7 +20,7 @@ class SubcategoryController extends Controller
     {
         $subcategory = $subcategoryService->createSubcategory($request->validated(), $category);
 
-        return new SubcategoryResoruce($subcategory);
+        return $this->respondWithSucsses(new SubcategoryResoruce($subcategory));
     }
 
     public function show(Category $category, Subcategory $subcategory)
@@ -32,6 +32,6 @@ class SubcategoryController extends Controller
     {
         $subcategory->delete();
 
-        return response()->json('Deleted');
+        return $this->destroyed();
     }
 }

@@ -18,6 +18,6 @@ class CouponController extends Controller
     {
         $coupon = Coupon::create($request->validated());
 
-        return new CouponResource($coupon);
+        return $this->respondWithSucsses(new CouponResource($coupon));
     }
 }

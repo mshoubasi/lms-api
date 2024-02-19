@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
-use App\Http\Resources\OrderResource;
-use App\Models\Course;
-use App\Models\Order;
-use App\Services\OrderService;
 use Exception;
+use App\Models\Order;
+use App\Models\Course;
 use Illuminate\Http\Request;
+use App\Services\OrderService;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\OrderResource;
 
 class OrderController extends Controller
 {
@@ -33,7 +34,7 @@ class OrderController extends Controller
             $order = $orderService->createOrder($course, $finalPrice);
             $orderService->notifyUser($order);
 
-            return new OrderResource($order);
+            return $this->respondWithSucsses(new OrderResource($order));
         } catch (Exception $e) {
             return $orderService->handleException($e);
         }

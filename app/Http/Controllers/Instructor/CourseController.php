@@ -22,14 +22,14 @@ class CourseController extends Controller
     {
         $course = $courseService->storeCourse($request->validated());
 
-        return new CourseResoruce($course);
+        return $this->respondWithSucsses(new CourseResoruce($course));
     }
 
     public function update(CourseUpdateRequest $request, CourseService $courseService, Course $course)
     {
         $course = $courseService->updateCourse($request->validated(), $course);
 
-        return new CourseResoruce($course);
+        return $this->respondWithSucsses(new CourseResoruce($course));
     }
 
     public function show(Course $course)
@@ -44,6 +44,6 @@ class CourseController extends Controller
 
         $course->delete();
 
-        return response()->json(['message' => 'done']);
+        return $this->destroyed();
     }
 }

@@ -21,7 +21,7 @@ class CategoryController extends Controller
     {
         $category = $categoryService->createCategory($request->validated());
 
-        return new CategoryResoruce($category);
+        return $this->respondWithSucsses(new CategoryResoruce($category));
     }
 
     public function show(Category $category)
@@ -33,6 +33,6 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return response()->json('Deleted');
+        return $this->destroyed();
     }
 }

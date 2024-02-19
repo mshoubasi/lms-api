@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\User\OrderController;
 use App\Http\Controllers\User\AuthController;
 use Illuminate\Support\Facades\Route;
 
